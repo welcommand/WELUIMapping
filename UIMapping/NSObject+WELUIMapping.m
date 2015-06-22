@@ -37,19 +37,16 @@
         // 元素为nil
         if(!UIEntity) continue;
         
-        id modelEntity;
+        __block id modelEntity;
         if([properties indexOfObject:UIProList[i]] != NSNotFound) {
             modelEntity = UIProList[i];
         } else if (shareRule.sameMeaningKeys) {
-            NSString *sameKeysValue = [shareRule.sameMeaningKeys objectForKey:UIProList[i]];
-            if(!sameKeysValue) continue;
-            NSArray *sameKeys = [shareRule.sameMeaningKeys allKeysForObject:sameKeysValue];
-            for(NSInteger i = 0; i < sameKeys.count; i++) {
-                if([properties indexOfObject:sameKeys[i]] != NSNotFound) {
-                    modelEntity = sameKeys[i];
-                    continue;
+            [shareRule searchSameMeaningKeysWithKey:UIProList[i] block:^(NSString *sameKey, BOOL *stop) {
+                if([properties indexOfObject:sameKey] != NSNotFound) {
+                    modelEntity = sameKey;
+                    *stop = YES;
                 }
-            }
+            }];
         }
         
         if(!modelEntity) continue;
@@ -102,5 +99,6 @@
     }
 }
 
-
 @end
+
+

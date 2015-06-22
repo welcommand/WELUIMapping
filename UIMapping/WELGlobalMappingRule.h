@@ -32,5 +32,6 @@ typedef NSString *(^WELTextSpliceRule)(NSString *modelKey, NSString *modelValue)
 -(void)addImageEnumRuleWithKey:(NSString *)imageKey  enumerationDescription:(NSDictionary *)enumDec;
 
 -(void)addSameMeaningKeys:(NSArray *)keys;
+-(void)searchSameMeaningKeysWithKey:(NSString *)key block:(void (^)(NSString *sameKey, BOOL *stop))block;
 
 @end

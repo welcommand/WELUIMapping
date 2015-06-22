@@ -67,6 +67,22 @@
     [sameMeaning_M addEntriesFromDictionary:dic];
 }
 
+
+-(void)searchSameMeaningKeysWithKey:(NSString *)key block:(void (^)(NSString *sameKey, BOOL *stop))block {
+    NSString *value = [sameMeaning_M objectForKey:key];
+    if(value) {
+        NSArray *sameMeaningKeys = [sameMeaning_M allKeysForObject:value];
+        __block BOOL stop = NO;
+        for(NSInteger i = 0; i < sameMeaningKeys.count; i++) {
+            if(![sameMeaningKeys[i] isEqualToString:key]) {
+                block(sameMeaningKeys[i],&stop);
+            }
+            if(stop) break;
+        }
+    }
+}
+
+
 #pragma mark-
 #pragma mark- get/set
 
