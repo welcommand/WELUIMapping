@@ -70,7 +70,6 @@
                 shareRule.imageRequestRule(UIEntity,imageRequestURL);
                 continue;
             }
-            
         }
         
         if ([self WELShouldMappingText:UIEntity]) {
@@ -92,7 +91,6 @@
             [self WELAssignmentTextEntity:UIEntity text:text];
         }
     }
-    
     
     if([self respondsToSelector:@selector(customValueEvent:modelValue:)]) {
         for(id value in properties) {

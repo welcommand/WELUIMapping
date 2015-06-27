@@ -12,8 +12,6 @@
 
 @optional
 
--(NSString *)customImageURLStringSpliceRuleWithUIKey:(NSString *)key subURLString:(NSString *)subURLString;
-
 -(NSString *)customTextSplice:(NSString *)UIkey modelValue:(NSString *)value;
 -(NSString *)customTextSplice:(NSString *)UIkey modelDictionary:(NSDictionary *)modelDictionary;
 
