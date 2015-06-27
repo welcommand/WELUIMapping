@@ -14,9 +14,9 @@
 
 -(NSString *)customImageURLStringSpliceRuleWithUIKey:(NSString *)key subURLString:(NSString *)subURLString;
 
--(NSString *)customMappingWithUIKey:(NSString *)key modelValue:(NSString *)value;
--(NSString *)customMappingWithUIKey:(NSString *)key model:(id)model;
+-(NSString *)customTextSplice:(NSString *)UIkey modelValue:(NSString *)value;
+-(NSString *)customTextSplice:(NSString *)UIkey modelDictionary:(NSDictionary *)modelDictionary;
 
-
+//-(void)customValueEvent:(NSString *)modelKey;
 
 @end

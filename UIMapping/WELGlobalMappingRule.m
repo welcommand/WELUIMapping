@@ -8,9 +8,7 @@
 
 #import "WELGlobalMappingRule.h"
 
-
 @interface WELGlobalMappingRule() {
-    NSMutableDictionary *imageEnumDec_M;
     NSMutableDictionary *sameMeaning_M;
 }
 
@@ -35,21 +33,16 @@
 #pragma mark-
 #pragma mark- image Rule
 
--(void)registerImageRequestRule:(WELImageRequestRule)reqRule {
+-(void)registerImageRequest:(WELImageRequestRule)reqRule {
     _imageRequestRule = [reqRule copy];
 }
--(void)registerImageURLSpliceRule:(WELImageURLStringSpliceRule)urlSpliceRele {
-    _imageUrlRule = [urlSpliceRele copy];
+-(void)registerImageURLSplice:(WELImageURLStringSplic)urlSpliceRele {
+    _imageUrlSplic = [urlSpliceRele copy];
 }
--(void)registerTextSpliceRule:(WELTextSpliceRule)spliceRule {
-    _textSpliceRule = [spliceRule copy];
+-(void)registerTextSplice:(WELTextSplice)spliceRule {
+    _textSplice = [spliceRule copy];
 }
 
--(void)addImageEnumRuleWithKey:(NSString *)imageKey  enumerationDescription:(NSString *)enumDes {
-    if(!imageKey || !enumDes) return;
-    [imageEnumDec_M removeObjectForKey:imageKey];
-    [imageEnumDec_M addEntriesFromDictionary:@{imageKey : enumDes}];
-}
 
 -(void)addSameMeaningKeys:(NSArray *)keys {
     
@@ -85,13 +78,6 @@
 
 #pragma mark-
 #pragma mark- get/set
-
--(NSDictionary *)imageEnumDec {
-    if(!imageEnumDec_M) {
-        imageEnumDec_M = [[NSMutableDictionary alloc] init];
-    }
-    return [imageEnumDec_M copy];
-}
 
 -(NSDictionary *)sameMeaningKeys {
     if(!sameMeaning_M) {
