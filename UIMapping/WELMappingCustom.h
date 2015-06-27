@@ -17,6 +17,6 @@
 -(NSString *)customTextSplice:(NSString *)UIkey modelValue:(NSString *)value;
 -(NSString *)customTextSplice:(NSString *)UIkey modelDictionary:(NSDictionary *)modelDictionary;
 
-//-(void)customValueEvent:(NSString *)modelKey;
+-(void)customValueEvent:(NSString *)modelKey modelValue:(NSString *)modelValue;
 
 @end

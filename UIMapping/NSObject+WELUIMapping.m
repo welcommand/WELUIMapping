@@ -92,6 +92,15 @@
             [self WELAssignmentTextEntity:UIEntity text:text];
         }
     }
+    
+    
+    if([self respondsToSelector:@selector(customValueEvent:modelValue:)]) {
+        for(id value in properties) {
+            NSString *modelValue = [data valueForKey:value];
+            [self performSelector:@selector(customValueEvent:modelValue:) withObject:value withObject:modelValue];
+        }
+    }
+    
 }
 
 
