@@ -55,10 +55,7 @@
         
         if([self WELShouldMappingImage:UIEntity]) {
             NSString *urlString = nil;
-            if([self respondsToSelector:@selector(customImageURLStringSpliceRuleWithUIKey:subURLString:)]) {
-                urlString = [self performSelector:@selector(customImageURLStringSpliceRuleWithUIKey:subURLString:) withObject:modelEntity withObject:modelEntityValue];
-            }
-            if ((!urlString || urlString.length  == 0) && shareRule.imageUrlSplic) {
+            if (shareRule.imageUrlSplic) {
                 urlString = shareRule.imageUrlSplic(modelEntity,modelEntityValue);
             }
             if(!urlString || urlString.length  == 0) {
