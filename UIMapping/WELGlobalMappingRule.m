@@ -26,10 +26,6 @@
     return globalRule;
 }
 
--(instancetype)init {
-    return [WELGlobalMappingRule globalRule];
-}
-
 #pragma mark-
 #pragma mark- image Rule
 
