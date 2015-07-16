@@ -110,7 +110,9 @@
     for(NSInteger i = 0; i < count; i++) {
         objc_property_t property = properties[i];
         NSString *propertyName = [NSString stringWithUTF8String:property_getName(property)];
-        [proArr addObject:propertyName];
+        if([obj respondsToSelector:NSSelectorFromString(propertyName)]) {
+            [proArr addObject:propertyName];
+        }
     }
     free(properties);
     return proArr;

@@ -14,7 +14,6 @@
 
 @end
 
-
 @implementation WELGlobalMappingRule
 
 +(instancetype)globalRule {
@@ -70,7 +69,6 @@
         }
     }
 }
-
 
 #pragma mark-
 #pragma mark- get/set
